@@ -1,10 +1,10 @@
 {
   "name": "s3urls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create S3 urls from bucket/key or extract bucket/key from them",
   "main": "index.js",
   "bin": {
-    "s3urls": "s3urls.js"
+    "s3urls": "bin/s3urls.js"
   },
   "directories": {
     "test": "test"
