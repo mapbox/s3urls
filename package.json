@@ -1,0 +1,31 @@
+{
+  "name": "s3urls",
+  "version": "1.0.0",
+  "description": "Create S3 urls from bucket/key or extract bucket/key from them",
+  "main": "index.js",
+  "bin": {
+    "s3urls": "s3urls.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapbox/s3urls.git"
+  },
+  "author": "Mapbox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/s3urls/issues"
+  },
+  "homepage": "https://github.com/mapbox/s3urls",
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "dependencies": {
+    "minimist": "^1.1.0"
+  }
+}
