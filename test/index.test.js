@@ -36,3 +36,9 @@ test('fromUrl: bucket-in-host style', function(t) {
   t.equal(result.Key, 'the/whole/key', 'expected key');
   t.end();
 });
+
+test('convert: in-path to s3', function(t) {
+  var result = s3Urls.convert('https://s3.amazonaws.com/bucket/the/whole/key', 's3');
+  t.equal(result, 's3://bucket/the/whole/key');
+  t.end();
+});

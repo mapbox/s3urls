@@ -1,6 +1,6 @@
 var parse = require('url').parse;
 
-module.exports = {
+var s3urls = module.exports = {
   fromUrl: function(url) {
     var uri = parse(url);
 
@@ -36,5 +36,10 @@ module.exports = {
       'bucket-in-path': [ 'https://s3.amazonaws.com', bucket, key ].join('/'),
       'bucket-in-host': [ 'https:/', bucket + '.s3.amazonaws.com', key ].join('/')
     };
+  },
+
+  convert: function(url, to) {
+    var params = s3urls.fromUrl(url);
+    return s3urls.toUrl(params.Bucket, params.Key)[to];
   }
 };
