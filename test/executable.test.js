@@ -76,7 +76,7 @@ test('fromUrl: no url', function(t) {
 test('fromUrl: unrecognized url', function(t) {
   exec(cmd + ' from-url http://www.google.com', function(err, stdout, stderr) {
     t.equal(err.code, 1, 'exit 1');
-    t.equal(stderr, 'ERROR: unrecognizable S3 url\n', 'expected message');
+    t.equal(stderr, 'ERROR: Unrecognizable S3 url\n', 'expected message');
     t.end();
   });
 });
@@ -87,6 +87,36 @@ test('fromUrl: success', function(t) {
       Bucket: 'bucket',
       Key: 'key'
     }) + '\n', 'expected result');
+    t.end();
+  });
+});
+
+test('convert: no url', function(t) {
+  exec(cmd + ' convert', function(err, stdout, stderr) {
+    t.equal(err.code, 1, 'exit 1');
+    t.equal(stderr, 'ERROR: No url given\n', 'expected message');
+    t.end();
+  });
+});
+
+test('convert: unrecognized url', function(t) {
+  exec(cmd + ' convert http://www.google.com', function(err, stdout, stderr) {
+    t.equal(err.code, 1, 'exit 1');
+    t.equal(stderr, 'ERROR: Unrecognizable S3 url\n', 'expected message');
+    t.end();
+  });
+});
+
+test('convert: default success', function(t) {
+  exec(cmd + ' convert s3://bucket/key', function(err, stdout, stderr) {
+    t.equal(stdout, 'https://bucket.s3.amazonaws.com/key\n', 'expected result');
+    t.end();
+  });
+});
+
+test('convert: typed success', function(t) {
+  exec(cmd + ' convert s3://bucket/key --type bucket-in-path', function(err, stdout, stderr) {
+    t.equal(stdout, 'https://s3.amazonaws.com/bucket/key\n', 'expected result');
     t.end();
   });
 });

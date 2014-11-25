@@ -41,5 +41,7 @@ var s3urls = module.exports = {
   convert: function(url, to) {
     var params = s3urls.fromUrl(url);
     return s3urls.toUrl(params.Bucket, params.Key)[to];
-  }
+  },
+
+  signed: require('s3signed')
 };
