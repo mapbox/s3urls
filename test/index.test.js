@@ -42,3 +42,12 @@ test('convert: in-path to s3', function(t) {
   t.equal(result, 's3://bucket/the/whole/key');
   t.end();
 });
+
+test('valid', function(t) {
+  t.notOk(s3Urls.valid('http://www.google.com'), 'not on s3');
+  t.ok(s3Urls.valid('https://s3.amazonaws.com/bucket/the/whole/key'), 'bucket in path');
+  t.ok(s3Urls.valid('https://bucket.s3.amazonaws.com/the/whole/key'), 'bucket in host');
+  t.ok(s3Urls.valid('http://bucket.s3.amazonaws.com/the/whole/key'), 'http');
+  t.ok(s3Urls.valid('s3://bucket/the/whole/key'), 's3');
+  t.end();
+});
