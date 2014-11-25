@@ -4,6 +4,8 @@ From bucket/key to URL and the other way around
 
 ## Usage
 
+In javascript:
+
 ```javascript
 var s3urls = require('s3urls');
 var assert = require('assert');
@@ -20,4 +22,34 @@ assert.deepEqual(result, {
   Bucket: 'my-bucket',
   Key: 'some/key'
 });
+```
+
+In a shell:
+
+```sh
+$ npm install -g s3urls
+
+# Get URLs for a bucket/key
+$ s3urls to-url my-bucket some/file/key
+s3://my-bucket/some/file/key
+https://s3.amazonaws.com/my-bucket/some/file/key
+https://my-bucket.s3.amazonaws.com/some/file/key
+
+# Get one type of URL for a bucket/key
+$ s3urls to-url my-bucket some/file/key --type bucket-in-host
+https://my-bucket.s3.amazonaws.com/some/file/key
+
+# Convert a URL from one type to another (defaults to bucket-in-host type)
+$ s3urls convert s3://my-bucket/some/file/key
+https://my-bucket.s3.amazonaws.com/some/file/key
+
+$ s3urls convert https://my-bucket.s3.amazonaws.com/some/file/key --type s3
+s3://my-bucket/some/file/key
+
+# Get a signed URL for a private object (default 600s expiration)
+$ s3urls signed my-bucket some/file/key
+https://my-bucket.s3.amazonaws.com/some/file/key?...
+
+$ s3urls signed s3://my-bucket/some/file/key --expire 1200
+https://my-bucket.s3.amazonaws.com/some/file/key?...
 ```
