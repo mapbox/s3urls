@@ -19,7 +19,7 @@ assert.deepEqual(url, {
 
 var url = 'https://s3.amazonaws.com/my-bucket/some/key';
 if (s3urls.valid(url)) {
-  var result = s3urls.fromUrl('https://s3.amazonaws.com/my-bucket/some/key');
+  var result = s3urls.fromUrl(url);
   assert.deepEqual(result, {
     Bucket: 'my-bucket',
     Key: 'some/key'
