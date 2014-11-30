@@ -17,11 +17,14 @@ assert.deepEqual(url, {
   'bucket-in-host': 'https://my-bucket.s3.amazonaws.com/some/key'
 });
 
-var result = s3urls.fromUrl('https://s3.amazonaws.com/my-bucket/some/key');
-assert.deepEqual(result, {
-  Bucket: 'my-bucket',
-  Key: 'some/key'
-});
+var url = 'https://s3.amazonaws.com/my-bucket/some/key';
+if (s3urls.valid(url)) {
+  var result = s3urls.fromUrl('https://s3.amazonaws.com/my-bucket/some/key');
+  assert.deepEqual(result, {
+    Bucket: 'my-bucket',
+    Key: 'some/key'
+  });
+}
 ```
 
 In a shell:
