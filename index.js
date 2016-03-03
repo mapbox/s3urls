@@ -20,7 +20,7 @@ var s3urls = module.exports = {
       key = uri.pathname.split('/').slice(2).join('/');
     }
     if (style === 'bucket-in-host') {
-      bucket = uri.hostname.split('.')[0];
+      bucket = uri.hostname.split('.').slice(0, -3).join('.');
       key = uri.pathname.slice(1);
     }
 
