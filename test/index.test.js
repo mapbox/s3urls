@@ -43,6 +43,11 @@ test('convert: in-path to s3', function(t) {
   t.end();
 });
 
+test('convert: tileset templates', function(t) {
+  t.equal(s3Urls.convert('https://s3.amazonaws.com/bucket/{z}/{x}/{y}', 's3'), 's3://bucket/{z}/{x}/{y}');
+  t.end();
+});
+
 test('valid', function(t) {
   t.notOk(s3Urls.valid('http://www.google.com'), 'not on s3');
   t.ok(s3Urls.valid('https://s3.amazonaws.com/bucket/the/whole/key'), 'bucket in path');

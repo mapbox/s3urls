@@ -4,6 +4,8 @@ var s3urls = module.exports = {
   fromUrl: function(url) {
     var uri = parse(url);
 
+    uri.pathname = decodeURIComponent(uri.pathname);
+
     var style = (function(uri) {
       if (uri.protocol === 's3:') return 's3';
       if (/^s3\.amazonaws\.com$/.test(uri.hostname)) return 'bucket-in-path';
