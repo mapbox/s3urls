@@ -30,8 +30,22 @@ test('fromUrl: bucket-in-path style', function(t) {
   t.end();
 });
 
+test('fromUrl: bucket-in-path style in cn-north-1', function(t) {
+  var result = s3Urls.fromUrl('https://s3.cn-north-1.amazonaws.com/bucket/the/whole/key');
+  t.equal(result.Bucket, 'bucket', 'expected bucket');
+  t.equal(result.Key, 'the/whole/key', 'expected key');
+  t.end();
+});
+
 test('fromUrl: bucket-in-host style', function(t) {
   var result = s3Urls.fromUrl('https://bucket.s3.amazonaws.com/the/whole/key');
+  t.equal(result.Bucket, 'bucket', 'expected bucket');
+  t.equal(result.Key, 'the/whole/key', 'expected key');
+  t.end();
+});
+
+test('fromUrl: bucket-in-host style in cn-north-1', function(t) {
+  var result = s3Urls.fromUrl('https://bucket.s3.cn-north-1.amazonaws.com/the/whole/key');
   t.equal(result.Bucket, 'bucket', 'expected bucket');
   t.equal(result.Key, 'the/whole/key', 'expected key');
   t.end();
