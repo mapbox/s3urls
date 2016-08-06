@@ -8,8 +8,8 @@ var s3urls = module.exports = {
 
     var style = (function(uri) {
       if (uri.protocol === 's3:') return 's3';
-      if (/^s3\.(cn-north-1\.)?amazonaws\.com$/.test(uri.hostname)) return 'bucket-in-path';
-      if (/\.s3\.(cn-north-1\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-host';
+      if (/^s3\.(\w{2}-\w{4,9}-\d\.)?amazonaws\.com$/.test(uri.hostname)) return 'bucket-in-path';
+      if (/\.s3\.(\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-host';
     })(uri);
 
     var bucket, key;
