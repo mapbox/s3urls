@@ -26,7 +26,14 @@ test('fromUrl: s3 style', function(t) {
 test('fromUrl: s3 bucket only style', function(t) {
   var result = s3Urls.fromUrl('s3://bucket');
   t.equal(result.Bucket, 'bucket', 'expected bucket');
-  t.equal(result.Key, null, 'expected key');
+  t.equal(result.Key, '', 'expected key');
+  t.end();
+});
+
+test('fromUrl: s3 bucket only style with slash', function(t) {
+  var result = s3Urls.fromUrl('s3://bucket/');
+  t.equal(result.Bucket, 'bucket', 'expected bucket');
+  t.equal(result.Key, '', 'expected key');
   t.end();
 });
 
