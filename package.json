@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/mapbox/s3urls",
   "devDependencies": {
+    "cross-exec-file": "^1.0.0",
     "tape": "^3.0.3"
   },
   "dependencies": {
