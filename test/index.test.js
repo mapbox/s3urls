@@ -23,6 +23,20 @@ test('fromUrl: s3 style', function(t) {
   t.end();
 });
 
+test('fromUrl: s3 bucket only style', function(t) {
+  var result = s3Urls.fromUrl('s3://bucket');
+  t.equal(result.Bucket, 'bucket', 'expected bucket');
+  t.equal(result.Key, '', 'expected key');
+  t.end();
+});
+
+test('fromUrl: s3 bucket only style with slash', function(t) {
+  var result = s3Urls.fromUrl('s3://bucket/');
+  t.equal(result.Bucket, 'bucket', 'expected bucket');
+  t.equal(result.Key, '', 'expected key');
+  t.end();
+});
+
 test('fromUrl: bucket-in-path style', function(t) {
   var result = s3Urls.fromUrl('https://s3.amazonaws.com/bucket/the/whole/key');
   t.equal(result.Bucket, 'bucket', 'expected bucket');
