@@ -9,7 +9,7 @@ From bucket/key to URL and the other way around
 In javascript:
 
 ```javascript
-var s3urls = require('s3urls');
+var s3urls = require('@mapbox/s3urls');
 var assert = require('assert');
 
 var url = s3urls.toUrl('my-bucket', 'some/key');
@@ -32,7 +32,7 @@ if (s3urls.valid(url)) {
 In a shell:
 
 ```sh
-$ npm install -g s3urls
+$ npm install -g @mapbox/s3urls
 
 # Get URLs for a bucket/key
 $ s3urls to-url my-bucket some/file/key
