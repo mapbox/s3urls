@@ -102,6 +102,13 @@ test('fromUrl: bucket-in-host style in cn-north-1 w/ dot', (t) => {
   t.end();
 });
 
+test('fromUrl: bucket-in-host style in cn-north-1 w/ dot & s3', (t) => {
+  const result = s3Urls.fromUrl('https://results.s3llout-to-the-man.io.s3.amazonaws.com/the/whole/key');
+  t.equal(result.Bucket, 'results.s3llout-to-the-man.io', 'expected bucket');
+  t.equal(result.Key, 'the/whole/key', 'expected key');
+  t.end();
+});
+
 test('fromUrl: bucket-in-host style in cn-north-1', (t) => {
   const result = s3Urls.fromUrl('https://bucket.s3.cn-north-1.amazonaws.com.cn/the/whole/key');
   t.equal(result.Bucket, 'bucket', 'expected bucket');
