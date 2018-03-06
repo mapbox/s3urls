@@ -23,7 +23,12 @@ const s3urls = module.exports = {
             key = uri.pathname.split('/').slice(2).join('/');
         }
         if (style === 'bucket-in-host') {
-            bucket = uri.hostname.split('.')[0];
+            const match = uri.hostname.match(new RegExp(/.*?(?=.s3)/));
+            if (match) {
+                bucket = match[0]
+            } else {
+                bucket =  uri.hostname.split('.')[0]
+            }
             key = uri.pathname.slice(1);
         }
 
