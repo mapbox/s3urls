@@ -10,7 +10,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tape test/*.test.js"
+    "lint": "eslint *.js test/*.js",
+    "test": "tape test/*.test.js && eslint *.js test/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,13 @@
     "url": "https://github.com/mapbox/s3urls/issues"
   },
   "homepage": "https://github.com/mapbox/s3urls",
+  "eslintConfig": {
+    "extends": "@mapbox/eslint-config-geocoding"
+  },
   "devDependencies": {
+    "@mapbox/eslint-config-geocoding": "^1.0.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-node": "^5.2.1",
     "cross-exec-file": "^1.0.0",
     "tape": "^3.0.3"
   },
