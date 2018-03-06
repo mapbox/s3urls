@@ -23,7 +23,7 @@ const s3urls = module.exports = {
       key = uri.pathname.split('/').slice(2).join('/');
     }
     if (style === 'bucket-in-host') {
-      const match = uri.hostname.replace(/\.s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com(\.cn)?/, '')
+      const match = uri.hostname.replace(/\.s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com(\.cn)?/, '');
       if (match.length) {
         bucket = match;
       } else {
