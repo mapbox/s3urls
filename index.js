@@ -9,8 +9,8 @@ const s3urls = module.exports = {
 
         const style = (function(uri) {
             if (uri.protocol === 's3:') return 's3';
-            if (/^s3[\.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-path';
-            if (/\.s3[\.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-host';
+            if (/^s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-path';
+            if (/\.s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-host';
         })(uri);
 
         let bucket, key;
@@ -25,9 +25,9 @@ const s3urls = module.exports = {
         if (style === 'bucket-in-host') {
             const match = uri.hostname.match(new RegExp(/.*?(?=.s3)/));
             if (match) {
-                bucket = match[0]
+                bucket = match[0];
             } else {
-                bucket =  uri.hostname.split('.')[0]
+                bucket =  uri.hostname.split('.')[0];
             }
             key = uri.pathname.slice(1);
         }
