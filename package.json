@@ -3,6 +3,7 @@
   "version": "1.5.2",
   "description": "Create S3 urls from bucket/key or extract bucket/key from them",
   "main": "index.js",
+  "engines" : { "node" : ">= 6.10.3" },
   "bin": {
     "s3urls": "bin/s3urls.js"
   },
