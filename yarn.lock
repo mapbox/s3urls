@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@mapbox/eslint-config-geocoding@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@mapbox/eslint-config-geocoding/-/eslint-config-geocoding-1.0.1.tgz#3b6552881408b6dc10560de5e2701beaa44a69cd"
+"@mapbox/eslint-config-mapbox@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/eslint-config-mapbox/-/eslint-config-mapbox-1.0.0.tgz#8ddcb5d7fc52a6db46a9b00fd09ac6263b452364"
 
 acorn-jsx@^3.0.0:
   version "3.0.1"

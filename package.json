@@ -3,7 +3,9 @@
   "version": "1.5.2",
   "description": "Create S3 urls from bucket/key or extract bucket/key from them",
   "main": "index.js",
-  "engines" : { "node" : ">= 6.10.3" },
+  "engines": {
+    "node": ">= 6.10.3"
+  },
   "bin": {
     "s3urls": "bin/s3urls.js"
   },
@@ -25,16 +27,16 @@
   },
   "homepage": "https://github.com/mapbox/s3urls",
   "eslintConfig": {
-    "extends": "@mapbox/eslint-config-geocoding"
+    "extends": "@mapbox/eslint-config-mapbox"
   },
   "devDependencies": {
-    "@mapbox/eslint-config-geocoding": "^1.0.0",
+    "cross-exec-file": "^1.0.0",
     "eslint": "^4.17.0",
     "eslint-plugin-node": "^5.2.1",
-    "cross-exec-file": "^1.0.0",
     "tape": "^3.0.3"
   },
   "dependencies": {
+    "@mapbox/eslint-config-mapbox": "^1.0.0",
     "minimist": "^1.1.0",
     "s3signed": "^0.1.0"
   }
