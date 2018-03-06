@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/s3urls",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Create S3 urls from bucket/key or extract bucket/key from them",
   "main": "index.js",
   "engines": {
