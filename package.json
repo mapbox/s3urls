@@ -33,7 +33,7 @@
     "cross-exec-file": "^1.0.0",
     "eslint": "^4.17.0",
     "eslint-plugin-node": "^5.2.1",
-    "tape": "^3.0.3"
+    "tape": "^5.0.1"
   },
   "dependencies": {
     "@mapbox/eslint-config-mapbox": "^1.0.0",
