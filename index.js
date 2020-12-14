@@ -51,7 +51,7 @@ const s3urls = module.exports = {
     return s3urls.toUrl(params.Bucket, params.Key)[to];
   },
 
-  signed: require('s3signed'),
+  signed: require('@mapbox/s3signed'),
 
   valid: function(url) {
     const params = s3urls.fromUrl(url);
